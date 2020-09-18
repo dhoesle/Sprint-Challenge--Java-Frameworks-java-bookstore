@@ -17,5 +17,8 @@ public interface HelperFunctions
      * @return constraint violations formatted for sending to the client
      */
     List<ValidationError> getConstraintViolation(Throwable cause);
-
+    
+    boolean isAuthorizedToMakeChange(String username);
+    
+    
 }

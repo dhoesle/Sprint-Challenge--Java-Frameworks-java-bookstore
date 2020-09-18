@@ -57,6 +57,7 @@ public class ResourceServerConfig
                              "/oauth/revoke-token",
                              "/logout")
                 .authenticated()
+                .antMatchers("/books/**").hasAnyRole("ADMIN", "DATA")
                 .antMatchers("/roles/**")
                 .hasAnyRole("ADMIN", "DATA")
                 .and()

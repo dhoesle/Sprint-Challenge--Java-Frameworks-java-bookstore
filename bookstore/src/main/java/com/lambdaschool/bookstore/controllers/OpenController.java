@@ -100,6 +100,7 @@ public class OpenController
         {
             port = ":" + httpServletRequest.getLocalPort();
         }
+    
         String requestURI = "http://" + httpServletRequest.getServerName() + port + "/login";
 
         List<MediaType> acceptableMediaTypes = new ArrayList<>();
@@ -123,7 +124,7 @@ public class OpenController
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map,
                                                                              headers);
-
+        RestTemplate restTemplate = new RestTemplate();
         String theToken = restTemplate.postForObject(requestURI,
                                                      request,
                                                      String.class);
